@@ -38,6 +38,7 @@ return [
 
     //   flash messages
     "user_updated" => "Фойдаланувчи маълумотлари янгиланди",
+    "user_deleted" => "Фойдаланувчи маълумотлари ўчирилди",
 
     //    months
     "january" => "Январь",

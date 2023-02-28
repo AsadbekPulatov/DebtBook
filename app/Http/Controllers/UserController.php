@@ -18,4 +18,10 @@ class UserController extends Controller
         $user->save();
         return back()->with('success', __("messages.user_updated"));
     }
+
+    public function delete($id){
+        $user = User::find($id);
+        $user->delete();
+        return back()->with('success', __("messages.user_deleted"));
+    }
 }

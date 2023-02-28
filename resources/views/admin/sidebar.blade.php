@@ -32,19 +32,21 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('admin.users') }}"
-                       class="nav-link @if(request()->routeIs('admin.users')) active @endif ">
-                        <i class="fa fa-users nav-icon"></i>
-                        <p>{{ __("messages.users") }}</p>
-                    </a>
-                </li>
-                <li class="nav-item">
                     <a href="{{ route('profile.edit') }}"
                        class="nav-link @if(request()->routeIs('profile.edit')) active @endif ">
                         <i class="fa fa-users nav-icon"></i>
                         <p>{{ __("messages.profile") }}</p>
                     </a>
                 </li>
+                @if(\Illuminate\Support\Facades\Auth::user()->role == 'admin')
+                    <li class="nav-item">
+                        <a href="{{ route('admin.users') }}"
+                           class="nav-link @if(request()->routeIs('admin.users')) active @endif ">
+                            <i class="fa fa-users nav-icon"></i>
+                            <p>{{ __("messages.users") }}</p>
+                        </a>
+                    </li>
+                @endif
                 <li class="nav-item">
                     <form action="{{ route('logout') }}" method="post">
                         @csrf

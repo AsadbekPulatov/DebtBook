@@ -45,7 +45,11 @@ class RegisteredUserController extends Controller
         event(new Registered($user));
 
         Auth::login($user);
-
+        $user = Auth::user();
+        if ($user->status == 0) {
+            Auth::logout();
+            return redirect()->route('login')->with('status', 'Your account is not active');
+        }
         return redirect(RouteServiceProvider::HOME);
     }
 }

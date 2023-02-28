@@ -9,7 +9,6 @@
                     <h3 class="card-title" style="font-size: x-large">{{ __("messages.users") }}</h3>
                 </div>
                 <div class="card-body">
-                    {{--                    @include("admin.types.create")--}}
                     <div class="table-responsive">
                         <table class="table table-hover">
                             <thead>
@@ -30,29 +29,19 @@
                                     <td>{{$item->role}}</td>
                                     <td class="d-flex">
                                         @if($item->status == 1)
-                                            <a href="{{ route('admin.users.update', $item->id) }}" class="btn btn-success">
+                                            <a href="{{ route('admin.users.update', $item->id) }}"
+                                               class="btn btn-success">
                                                 {{ __("messages.active") }}
                                             </a>
-{{--                                            <p class="btn btn-success">{{ __("messages.active") }}</p>--}}
                                         @else
-                                            <a href="{{ route('admin.users.update', $item->id) }}" class="btn btn-danger">
+                                            <a href="{{ route('admin.users.update', $item->id) }}"
+                                               class="btn btn-danger">
                                                 {{ __("messages.inactive") }}
                                             </a>
-{{--                                            <p class="btn btn-danger">{{ __("messages.inactive") }}</p>--}}
                                         @endif
-                                        {{--                                        <button type="button" onclick="edit({{$item->id}})" class="btn btn-warning"--}}
-                                        {{--                                                data-toggle="modal" data-target="#modal-edit">--}}
-                                        {{--                                            <i class="fa fa-pen"></i>--}}
-                                        {{--                                        </button>--}}
-
-
-                                        {{--                                        <form action="{{route('types.destroy', $item->id)}}" method="post">--}}
-                                        {{--                                            @method('DELETE')--}}
-                                        {{--                                            @csrf--}}
-                                        {{--                                            <button type="submit" class="btn btn-danger show_confirm"><i--}}
-                                        {{--                                                    class="fa fa-trash"></i></button>--}}
-                                        {{--                                        </form>--}}
-
+                                        <a href="{{ route('admin.users.delete', $item->id) }}" class="btn btn-danger ml-3">
+                                            <i class="fa fa-trash"></i>
+                                        </a>
                                     </td>
                                 </tr>
                             @endforeach
@@ -60,7 +49,6 @@
                         </table>
                     </div>
                 </div>
-                {{--                @include("admin.types.edit")--}}
             </div>
 
         </div>
